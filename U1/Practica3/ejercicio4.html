@@ -6,6 +6,14 @@
   </head>
   <body>
     <script type="text/javascript">
+    var año = prompt("En qué año naciste?:");
+    var d = new Date();
+    var n = d.getFullYear() - año;
+    if (n<18){
+      alert ("Eres demasiado pequeño! No tienes edad suficiente");
+    } else{
+      alert ("Adelante, pase usted");
+    }
 
 
     </script>
