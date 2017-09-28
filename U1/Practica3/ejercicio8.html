@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function descuento (precio, porcentaje){
+        var preciodesc = (precio*porcentaje)/100;
+        var preciofin = precio - preciodesc;
+        document.write("<p>Tu precio final es: " + preciofin + "</p>");
+      }
+      var precio = prompt("Introduceme un precio: ");
+      var precioint = parseInt(precio);
+      var porcentaje = prompt ("Introduceme un porcentaje:");
+      var porcentajeint = parseInt(porcentaje);
+
+      if(precioint <=0 || typeof(precioint) != "number"){
+        document.write("Tu numero no es valido");
+      } else if (porcentajeint <=0 || porcentajeint>100 || typeof(porcentajeint) != "number") {
+        document.write("El porcentaje no es valido");
+      }else {
+        descuento(precioint, porcentajeint);
+      }
+
+
+    </script>
+  </body>
+</html>
