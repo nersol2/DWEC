@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var cadena1 = "Hola";
+      var cadena2 = "Adios";
+      function cadenas (cad1,cad2){
+        if(typeof cad1 !== "string" || typeof cad2 !== "string"){
+          console.log("Error");
+        }else{
+        if(  cad1.length > cad2.length ){
+          console.log(cad1);
+        }else {
+          console.log(cad2);
+        }
+        }
+      }
+      cadenas(cadena1,cadena2);
+    </script>
+  </body>
+</html>
