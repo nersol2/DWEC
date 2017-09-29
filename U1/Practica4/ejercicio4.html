@@ -12,13 +12,21 @@
         if(typeof cad1 !== "string" || typeof cad2 !== "string"){
           console.log("Error");
         }else{
-        if(  cad1.length > cad2.length ){
-          console.log(cad1);
-        }else {
-          console.log(cad2);
-        }
+          if(cad1.length > cad2.length ){
+            console.log(cad1);
+          }else if(cad1.length < cad2.length) {
+            console.log(cad2);
+          }else {
+            console.log("Las cadenas son iguales")
+          }
         }
       }
+      cadenas(cadena1,cadena2);
+      cadena1 = "Hasta Luego";
+      cadena2 = true;
+      cadenas(cadena1,cadena2);
+      cadena1="Nerea";
+      cadena2="Nerea";
       cadenas(cadena1,cadena2);
     </script>
   </body>
