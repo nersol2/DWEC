@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+        var MayorEdad = function() {
+        var edad = prompt("Dime tu edad: ");
+        var edadpers = parseInt(edad);
+        var salida;
+        if(salida>=18){
+          document.write("SI ");
+        }else{
+          document.write("NO ")
+        }
+        return salida
+      }
+
+    function(salida){
+
+      if(edadpers>=18){
+        document.write("<ul><li>Coca Cola, 3€ </li><li>Café, 5€</li><li>Martini,9€</li><li>Whisky, 20€</li></ul>");
+      }else{
+        document.write("<ul><li>Coca Cola, 3€ </li> <li>Café, 5€</li></ul> ");
+      }
+
+    }
+    MayorEdad();
+    </script>
+  </body>
+</html>

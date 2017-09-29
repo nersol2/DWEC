@@ -6,18 +6,23 @@
   </head>
   <body>
     <script type="text/javascript">
-    var edad1 = prompt("Dime una edad mayor de 18: ");
-    var edad2 = prompt("Dime una edad menor de 18: ");
+    var edad = prompt("Dime una edad") || 18;
     var MayorEdad = function(num){
-        if(num>=18){
-          document.write("SI ");
+      var nNumero = parseInt(num); //Tambien se puede poner aqui el por defecto. ||18
+        if(isNaN(num)){
+          console.log("Error");
         }else{
-          document.write("NO ")
+          if(num=>18){
+            return "si";
+
+          }else{
+            return "no";
+          }
         }
       }
-      MayorEdad(18);
-      MayorEdad(edad1);
-      MayorEdad(edad2);
+
+    var resultado =  MayorEdad(edad);
+    document.write(resultado);
 
     </script>
   </body>
