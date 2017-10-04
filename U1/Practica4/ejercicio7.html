@@ -8,12 +8,15 @@
     <script type="text/javascript">
     var diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
     function mostrar(dias) {
-      var num  = prompt("Introduceme un numero: ");
+      var num  = prompt("Introduceme un numero: ") || 4;
 
     for (var i in dias) {
       console.log(dias[i]);
     }
-    document.write("dias[num+1]")
+    if(num>=0 || num<=6){
+      document.write("dias[num+1]")
+    }
+
     }
 
     </script>
