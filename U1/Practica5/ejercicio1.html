@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      h1, h2 {
+        text-align: center;
+      }
+      img {
+        display:block;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>¿Quieres conocer nuestro surtido?</h1>
+    <h2>Pulsa sobre la imagen</h2>
+    <img onclick="mostrar()" src="kiosco.jpg" alt="kiosco">
+    <script type="text/javascript">
+      function generaSurtido() {
+        var articulos = ["pipas","revistas","chuches","cromos","paquetitos","helados","periodicos","caramelos"];
+        return articulos;
+      }
+      function consultaPrecios(i) {
+        var precios = [1,1.5,0.05,0.60,0.35,1.90,1,0.10];
+        return precios[i];
+      }
+      function mostrarSurtidoPrecio(surtido,precios) {
+        document.write("<table> <tr>");
+        for(var i = 0; i<precios.length; i++){
+          if(precios[i] > 0){
+            document.write("<td><img width='80px' height='80px' src='" + surtido[i] + ".jpg' alt='"+surtido[i]+"'></td>");
+          }
+        }
+        document.write("</tr> <tr>");
+        for(var i = 0; i<precios.length; i++){
+          if(precios[i] > 0){
+            document.write("<td>" + precios[i] + " € </td>");
+          }
+        }
+        document.write("</tr> <table>");
+      }
+      function mostrar(){
+      var sur= generaSurtido();
+      var precios = [1,1.5,0.05,0.60,0.35,1.90,1,0.10];
+      mostrarSurtidoPrecio(sur,precios);
+      }
+    </script>
+  </body>
+</html>
