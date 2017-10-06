@@ -6,17 +6,34 @@
   </head>
   <body>
     <script type="text/javascript">
-
-        var MayorEdad = function() {
-        var edad = prompt("Dime tu edad: ");
-        var edadpers = parseInt(edad);
-        if(edadpers>=18){
-          document.write("<ul><li>Coca Cola, 3€ </li><li>Café, 5€</li><li>Martini,9€</li><li>Whisky, 20€</li></ul>");
+    var edad = prompt("Dime una edad: ");
+    var MayorEdad = function(num){
+      var nNumero = parseInt(num); //Tambien se puede poner aqui el por defecto. ||18
+        if(isNaN(nNumero)){
+          console.log("Error");
         }else{
-          document.write("<ul><li>Coca Cola, 3€ </li> <li>Café, 5€</li></ul> ");
+          if(num>=18){
+            document.write("<ul><li>Coca Cola, 3€ </li><li>Café, 5€</li><li>Martini,9€</li><li>Whisky, 20€</li></ul>");
+
+            return "si ";
+
+          }else{
+            document.write("<ul><li>Coca Cola, 3€ </li> <li>Café, 5€</li></ul> ");
+            return "no ";
+
+          }
         }
       }
-      MayorEdad();
+      //   var MayorEdad = function() {
+      //   var edad = prompt("Dime tu edad: ");
+      //   var edadpers = parseInt(edad);
+      //   if(edadpers>=18){
+      //     document.write("<ul><li>Coca Cola, 3€ </li><li>Café, 5€</li><li>Martini,9€</li><li>Whisky, 20€</li></ul>");
+      //   }else{
+      //     document.write("<ul><li>Coca Cola, 3€ </li> <li>Café, 5€</li></ul> ");
+      //   }
+      // }
+      MayorEdad(edad);
 
     </script>
   </body>
