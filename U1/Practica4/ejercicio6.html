@@ -8,7 +8,7 @@
     <script type="text/javascript">
       var arr1= [1,2,3,"hola",true,false,"a",34.5,"b",true];
       var arr2=[];
-      
+      var j =0;
       for (var i = 0; i < arr1.length; i++) {
         console.log("Indice " + i + " contenido " + arr1[i]);
         document.write("<p>" + arr1[i]+ "</p>")
@@ -17,9 +17,10 @@
       }
       for (var i = 0; i < arr1.length; i++) {
         if(isNaN(arr1[i]) == false){
-          arr2[i]= arr1[i];
+          arr2[j]= arr1[i];
 
-          document.write("<p> Array2: " + arr2[i]+ "</p>")
+          document.write("<p> Array2: " + arr2[j]+ "</p>");
+          j++;
         }
       }
 
