@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 2</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var coche1 = new Object();
+      coche1.marca = "Ford";
+      coche1.ruedas = "4";
+      coche1.plazas = "5";
+      coche1.color = "rojo";
+      coche1.cambiarColor = function(){
+        color = "blanco";
+      }
+      var coche2 = new Object();
+      coche2.marca = "Mercedes";
+      coche2.ruedas = "4";
+      coche2.plazas = "7";
+      coche2.color = "negro";
+      coche2.cambiarColor = function(){
+      color = "blanco";
+      }
+
+      console.log("Eliminar Plazas");
+      delete coche1.plazas;
+      console.log("Coche 1");
+      console.log(Object.keys(coche1));
+      console.log("Coche 2");
+      console.log(Object.keys(coche2));
+
+
+    </script>
+  </body>
+</html>
