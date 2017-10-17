@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 4</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function Persona(nombre,apellidos){
+      this.nombre = nombre || "Anonymus";
+      this.apellidos = apellidos;
+      this.saludar = function(){
+        console.log("Hola me llamo: " + this.nombre + this.apellidos);
+      }
+    }
+      var persona1 = new Persona("Nerea "," Rodriguez");
+      var persona2 = new Persona("Mireya "," Martinez");
+
+      console.log("Persona1 es instanceof: " +(persona1 instanceof Persona));
+      console.log("Persona2 es intanceof: "+(persona2 instanceof Persona));
+
+      console.log(Object.keys(persona1));
+      console.log(Object.keys(persona2));
+      persona1.saludar();
+      persona2.saludar();
+
+    </script>
+  </body>
+</html>
