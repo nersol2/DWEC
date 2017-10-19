@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function Persona(nombre,apellidos){
+      this.nombre = nombre || "Anonymus";
+      this.apellidos = apellidos;
+      this.saludar = function(){
+        console.log("Hola me llamo: " + this.nombre + this.apellidos);
+      }
+    }
+      var persona1 = new Persona("Nerea "," Rodriguez");
+      var persona2 = new Persona("Mireya "," Martinez");
+
+      console.log("Persona1 es instanceof: " +(persona1 instanceof Persona));
+      console.log("Persona2 es intanceof: "+(persona2 instanceof Persona));
+
+      console.log(Object.keys(persona1));
+      console.log(Object.keys(persona2));
+      persona1.saludar();
+      persona2.saludar();
+
+    function Estudiante(nombre, apellidos, estudios, notaMedia){
+      Persona.call(this,nombre, apellidos);
+      this.estudios = estudios;
+      this.notaMedia = notaMedia;
+      this.recuperar = function(){
+        if(this.notaMedia < 5){
+          this.notaMedia = 5;
+        }
+      }
+    }
+    var lista = new Array(3);
+    var nota = prompt("nota alumno1?");
+    var nota2 = prompt("nota alumno2?");
+    var nota3 = prompt("nota alumno3?");
+    nota = parseInt(nota);
+    nota2 = parseInt(nota2);
+    nota3 = parseInt(nota3);
+    var alumno1 = new Estudiante("Blanca","Nuñez", "Eso", nota);
+    var alumno2 = new Estudiante("Juanita","Gomez", "bachiller", nota2);
+    var alumno3 = new Estudiante("Ana","Soriano", "Master", nota3);
+    console.log("Nota media del alumno1: " + alumno1.notaMedia);
+    alumno1.notaMedia = alumno1.notaMedia.toFixed(2);
+    console.log("Nota media del alumno1 redondeada: " + alumno1.notaMedia);
+    alumno1.recuperar();
+    console.log("Nota media del alumno1 Recuperada: " + alumno1.notaMedia);
+    console.log(alumno1);
+     lista[0] = alumno1;
+     lista[1] = alumno2;
+     lista[2] = alumno3;
+     for(var i = 0; i < lista.length; i++){
+       console.log("Nombre: " + lista[i].nombre +  " Apellidos: " + lista[i].apellidos+ " Edad: " + lista[i].edad + " Estudios: " + lista[i].estudios+ " Nota: " + lista[i].notaMedia);
+     }
+    </script>
+  </body>
+</html>

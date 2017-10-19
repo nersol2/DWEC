@@ -6,6 +6,31 @@
   </head>
   <body>
     <script type="text/javascript">
+    function Persona(nombre,apellidos){
+      this.nombre = nombre || "Anonymus";
+      this.apellidos = apellidos;
+      this.telefono = "965236842";
+      this.saludar = function(){
+        console.log("Hola me llamo: " + this.nombre + this.apellidos);
+      }
+
+      this.edad = Math.floor(Math.random()* 100) - 1;
+      this.CumplirAnyo = function(){
+      this.edad = this.edad + 1;
+    }
+  }
+      var persona1 = new Persona("Nerea ","Rodriguez");
+
+      console.log("Persona1 es instanceof: " +(persona1 instanceof Persona));
+
+      console.log(Object.keys(persona1));
+      persona1.saludar();
+
+
+      console.log("Telefono: " + persona1.telefono)
+      console.log("Edad: " + persona1.edad);
+      persona1.CumplirAnyo();
+      console.log("Edad sumando: " + persona1.edad);
 
     </script>
   </body>

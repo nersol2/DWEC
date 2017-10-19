@@ -7,13 +7,13 @@
   <body>
     <script type="text/javascript">
       var frase = "Esto es un string";
-      document.write("Longitud: " + frase.length);
-      document.write("El caracter de la posicion 7: " + frase.charAt(7));
-      document.write("El índice en el que está la última t: " + frase.lastIndexOf("t"));
-      document.write("La transformación a minúsculas: " + frase.toLocaleLowerCase());
-      document.write("La transformación a mayusculas: " + frase.toLocaleUpperCase());
-      document.write("Las palabras separadas por comas que componen la frase: "  );
-      document.write("Las posiciones de la 11 a la 18: " + frase.slice(11,18));
+      document.write("<br> Longitud: " + frase.length);
+      document.write(" <br>El caracter de la posicion 7: " + frase.charAt(7));
+      document.write("<br>El índice en el que está la última t: " + frase.lastIndexOf("t"));
+      document.write("<br>La transformación a minúsculas: " + frase.toLowerCase());
+      document.write("<br>La transformación a mayusculas: " + frase.toUpperCase());
+      document.write("<br>Las palabras separadas por comas que componen la frase: " + frase.split(" ") );
+      document.write("<br> Las posiciones de la 11 a la 18: " + frase.slice(11,18));
     </script>
   </body>
 </html>
