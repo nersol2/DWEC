@@ -6,7 +6,79 @@
   </head>
   <body>
     <script type="text/javascript">
-      
+    function Persona(nombre,apellidos){
+      this.nombre = nombre || "Anonymus";
+      this.apellidos = apellidos;
+      this.saludar = function(){
+        console.log("Hola me llamo: " + this.nombre + this.apellidos);
+      }
+    }
+      var persona1 = new Persona("Nerea "," Rodriguez");
+      var persona2 = new Persona("Mireya "," Martinez");
+
+      console.log("Persona1 es instanceof: " +(persona1 instanceof Persona));
+      console.log("Persona2 es intanceof: "+(persona2 instanceof Persona));
+
+      console.log(Object.keys(persona1));
+      console.log(Object.keys(persona2));
+      persona1.saludar();
+      persona2.saludar();
+
+      Persona.prototype.edad = Math.floor(Math.random()* 100) - 1;
+      Persona.prototype.CumplirAnyo = function(){
+      this.edad = this.edad + 1;
+      }
+
+      persona1.telefono = "965236842";
+      console.log("Edad: " + persona1.edad);
+      persona1.CumplirAnyo();
+      console.log("Edad sumando: " + persona1.edad);
+
+
+    function Estudiante(nombre, apellidos, estudio, media){
+      Persona.call(this,nombre, apellidos);
+      this.estudio = estudio;
+      this.media = media;
+      this.recuperar = function(){
+        if(this.media < 5){
+          this.media = 5;
+        }
+      }
+    }
+    var lista = new Array(3);
+
+    var nota1 = prompt("Introduce la nota del alumno 1: ");
+    nota1 = parseFloat(nota1);
+    var nota2 = prompt("Introduce la nota del alumno 2: ");
+    nota2 = parseFloat(nota2);
+    var nota3 = prompt("Introduce la nota del alumno 3: ");
+    nota3 = parseFloat(nota3);
+
+    var alum1 = new Estudiante("Nerea","Rodriguez Soler", "Ciclo", nota1);
+    var alum2 = new Estudiante("Jessica","Rodriguez Soler", "Bachiller", nota2);
+    var alum3 = new Estudiante("Mathilde","Guillar Martinez", "Master", nota3);
+    console.log("Nota media alumno 1: " + alum1.media);
+    alum1.media = alum1.media.toFixed(2);
+    console.log("Nota media redondeada alumno 1: " + alum1.media);
+    alum1.recuperar();
+    console.log("Nota media recuperada alumno 1: " + alum1.media);
+    console.log(alum1);
+    lista[0] = alum1;
+    lista[1] = alum2;
+    lista[2] = alum3;
+     for(var i = 0; i < lista.length; i++){
+
+    console.log("El estudiante de estudios: " + lista[i].estudio + " Nombre: " + lista[i].nombre +  " Apellidos: " + lista[i].apellidos+ " Tienen una nota media de: " + lista[i].media);
+
+     }
+     //Ejer 9
+     var apellidos;
+     for (var i = 0; i < 3; i++) {
+       apellidos = lista[i].apellidos.split(" ");
+       document.write("Nombre: " + lista[i].nombre + "; Primer Apellido " + apellidos[0] + "; Segundo Apellido " + apellidos[1] + "<br>");
+       }
+
+
     </script>
   </body>
 </html>
