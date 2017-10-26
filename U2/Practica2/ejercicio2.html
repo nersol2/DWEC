@@ -9,7 +9,11 @@
         var fecha = prompt("Escribe la fecha con un formato: aaaa-mm-dd o aaaa/mm/dd");
         var f = new Date(fecha);
         console.log(fecha);
-        
+        console.log(f.getFullYear());
+        var hoy = new Date();
+        console.log("Fecha de hoy: " + hoy);
+        console.log("Milisegundos: " + (f.getFullYear() - hoy.getFullYear()) * 31556900000);
+        console.log("Dias que quedan: " + Math.floor((f - hoy) / (1000 * 60 * 60 * 24)));
     </script>
   </body>
 </html>
