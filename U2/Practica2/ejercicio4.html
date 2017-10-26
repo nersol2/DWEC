@@ -6,7 +6,29 @@
   </head>
   <body>
     <script type="text/javascript">
-      
+    var a = [3, 21, 15, "pepe"];
+    a.push(12);
+    a.push(2);
+    a.unshift(99);
+    a.unshift(20);
+    console.log(a.toString());
+    a.splice(2,3);
+    console.log(a.toString());
+    a.splice(a.length-1, 0, 10, 25);
+    console.log(a.toString());
+    console.log(a.join(" ==> "));
+    var e = a.reverse();
+    console.log(e);
+    console.log(a);
+    // Porque se aplica de los metodos de arriba ya que han sido modificados.
+    console.log(a.indexOf(25));
+    console.log(a.indexOf(200));
+
+
+    console.log("Todos son numeros: " + a.every(function(a){return Number(a);}))
+    console.log("Alguna edad es menor de 20: " + a.some(function(a) { return a < 20; }));
+    var array = [4, 21, 33, 12, 9, 54];
+    console.log("Suma del array: " + array.reduce(function(total,array){ return total + array;}));
     </script>
   </body>
 </html>
