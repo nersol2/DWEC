@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var a = [3, 21, 15, 61];
+      a.push(12);
+      a.push(2);
+      a.unshift(99);
+      a.unshift(20);
+      console.log(a.toString());
+      a.splice(2,3);
+      console.log(a.toString());
+      a.splice(a.length-1, 0, 10, 25);
+      console.log(a.toString());
+      console.log(a.join(" ==> "));
+      var e = a.reverse();
+      console.log(e);
+      console.log(a);
+      // Porque se aplica de los metodos de arriba ya que han sido modificados.
+      console.log(a.indexOf(25));
+      console.log(a.indexOf(200));
+    </script>
+  </body>
+</html>
