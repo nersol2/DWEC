@@ -15,3 +15,6 @@ function verPorPrecioMenos(p){
   p.ordenPorPrecioMenos();
   p.dibujarSurtido();
 }
+function verVegano(){
+  p.dibujarSurtido(p.ordenVegano());
+}

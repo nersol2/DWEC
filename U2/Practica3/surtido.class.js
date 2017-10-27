@@ -4,8 +4,16 @@ function Mas(p1,p2){
 function Menos(p1,p2){
   return p2.precio - p1.precio;
 }
+function vegano(p1){
+  return p1.vegano == true;
+}
+
 function Surtido(productos){
   this.productos = productos;
+  this.ordenVegano = function(){
+    var a = this.productos.filter(vegano);
+    return a;
+  }
   this.ordenPorPrecioMenos = function(){
     this.productos.sort(Menos);
   }
