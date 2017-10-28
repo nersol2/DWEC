@@ -7,10 +7,13 @@
   <body>
     <script type="text/javascript">
       var a = [4, 21, 33, 12, 9, 54];
-     a.forEach(function(a){
-       return a*2;
+      a.forEach(function(numero,indice){
+         return console.log(numero*2);
+       });
+     var array = [8, false, true, 9];
+     array.forEach(function(val, i, pos){
+       return console.log("El indice: " + i + " del array [" + pos + "] tiene el valor: " + val);
      });
-     console.log(a);
     </script>
   </body>
 </html>
