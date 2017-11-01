@@ -18,3 +18,10 @@ function verPorPrecioMenos(p){
 function verVegano(){
   p.dibujarSurtido(p.ordenVegano());
 }
+
+function navegarCarrito(){
+  window.location="carrito.html";
+}
+function condCompraOnline(){
+  //Mostrar en otra ventana emergente las condiciones de compra y un boton que permita cerrarlas.
+}
