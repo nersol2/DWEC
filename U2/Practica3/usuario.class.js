@@ -7,7 +7,11 @@ function Usuario(productos){
 
   this.eliminarCompra = function(){
     if(this.compra.length > 0){
-      delete this.compra[length];
+      if (this.compra.length == 1) {
+        this.compra.innerHTML = " ";
+        this.importe = 0;
+      }
+    this.compra.pop();
     }else{
         alert("Error, no se puede eliminar porque no hay compra en el carrito.");
     }
@@ -17,7 +21,7 @@ function Usuario(productos){
       var impor = this.compra.reduce(function(total, num) {
         return total + num.precio;
       },0);
-  }this.importe = total;
+      this.importe = impor;
   }else{
     alert("Error, no se puede calcular porque no hay productos en el carrito.");
 }
@@ -46,6 +50,7 @@ this.mostrarCompra = function(compra){
       str += "</div>"
     }
   }
-  cuerpo.innerHTML = str;
+  cuerpo.innerHTML = str + "<hr>" + "<b>" + this.importe + "</b>";
+}
 }
 }
