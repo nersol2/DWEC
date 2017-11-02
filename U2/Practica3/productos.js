@@ -40,5 +40,56 @@ var productos = [
     foto:'https://media2.ocu.org//images/CE9E19F522012DD79E635A40B861F4F8C3DAB876/w150-c4/hf31300041604001.jpg',
     precio: 5.30,
     vegano: true
+  },
+  {
+    nombre:'Papas campesinas',
+    descripcion: 'Papas lays campesinas. Paquete 125g',
+    foto:'http://www.pidetuschuches.com/1462-home_default/patatas-lays-receta-campensina-grande.jpg',
+    precio: 1.75,
+    vegano: false
+  },
+  {
+    nombre:'Cocacola',
+    descripcion: 'Cocacola zero, lata 33cl ',
+    foto:'http://www.etnacoffee.net/wp-content/uploads/2015/09/coca-cola-zero-0.33l.jpg',
+    precio: 0.58,
+    vegano: true
+  }
+];
+var compras = [
+  {
+    nombre:'Camiseta',
+    descripcion: 'Camiseta 100% algodón en colores oscuros',
+    foto:'http://www.regalosfrikis.com/wp-content/uploads/2014/08/regalos-frikis-camiseta-soy-informatico.jpg',
+    precio: 15,
+    vegano: true
+  },
+  {
+    nombre:'Galletas',
+    descripcion: 'Deliciosas galletas de avena con cookies de chocolate',
+    foto:'http://mxcdn.ar-cdn.com/recipes/originals/e08c641d-3ce5-44fa-959c-167e397b8890.jpg',
+    precio: 1.80,
+    vegano: true
+  },
+  {
+    nombre:'Café',
+    descripcion: 'Café Molido Fortaleza. Paquete 454g',
+    foto:'https://media2.ocu.org//images/CE9E19F522012DD79E635A40B861F4F8C3DAB876/w150-c4/hf31300041604001.jpg',
+    precio: 5.30,
+    vegano: true
+  },
+  {
+    nombre:'Papas campesinas',
+    descripcion: 'Papas lays campesinas. Paquete 125g',
+    foto:'http://www.pidetuschuches.com/1462-home_default/patatas-lays-receta-campensina-grande.jpg',
+    precio: 1.75,
+    vegano: false
+  },
+  {
+    nombre:'Cocacola',
+    descripcion: 'Cocacola zero, lata 33cl ',
+    foto:'http://www.etnacoffee.net/wp-content/uploads/2015/09/coca-cola-zero-0.33l.jpg',
+    precio: 0.58,
+    vegano: true
   }
 ];
