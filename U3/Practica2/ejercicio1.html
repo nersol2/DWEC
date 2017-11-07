@@ -7,7 +7,7 @@
   <body>
     <h1>Lista de la compra</h1>
     <input type="text" name="text">
-    <select  name="selector" id="selector">
+    <select  name="select" id="selector">
         <option value=0>Escoge una opcion</option>
         <option value="red">Carniceria</option>
         <option value="navy">Pescaderia</option>
@@ -18,5 +18,8 @@
     <button onclick="anadirElemento()">Añadir elemento</button>
     <button onclick="borrarLista()">Borrar lista</button>
     <hr>
+    <script type="text/javascript">
+      var txt = document.getElementsByTagName("input")[0]
+    </script>
   </body>
 </html>
