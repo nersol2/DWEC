@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Crea elementos del DOM</title>
+    <script type="text/javascript">
+      onload = function creaDOM(){
+        var c= document.body;
+        var t = document.createElement("h1");
+        t.innerHTML = "El valencia cf esta haciendo historia con el mejor arranque de Liga";
+        t.style.color = "blue";
+        t.style.fontFamily ="Arial";
+        c.appendChild(t);
+        var imagen = document.createElement("img");
+        imagen.setAttribute("src","http://www.lafutbolteca.com/wp-content/uploads/2010/01/VALENCIA.jpg");
+        imagen.style.width = "50px";
+        imagen.style.height = "50px";
+        c.appendChild(imagen);
+      }
+    </script>
+  </head>
+  <body>
+
+
+  </body>
+</html>
