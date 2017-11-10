@@ -20,14 +20,23 @@
     <hr>
     <script type="text/javascript">
       function anadirElemento(){
-      
+      var parr = document.createElement("p");
+      var tex = document.getElementsByName("text")[0].value;
+      parr.innerHTML = tex;
+      document.body.appendChild(parr);
+      parr.style.color = selector.value;
+      parr.setAttribute("onclick","borrarElemento()");
+
       }
       function borrarElemento(){
-        var elem = document.querySelector("p:hover");
-        elem.remove();
+        document.body.removeChild(document.querySelector("p:hover"));
       }
       function borrarLista(){
-
+        var mip = document.getElementsByTagName("p");
+        var tamaño = mip.length;
+        for (var i = 0; i < tamaño; i++) {
+          document.body.removeChild(mip[0]);
+        }
       }
 
 
