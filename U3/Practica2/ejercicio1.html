@@ -20,23 +20,30 @@
     <hr>
     <script type="text/javascript">
       function anadirElemento(){
-      var parr = document.createElement("p");
-      var tex = document.getElementsByName("text")[0].value;
-      parr.innerHTML = tex;
-      document.body.appendChild(parr);
-      parr.style.color = selector.value;
-      parr.setAttribute("onclick","borrarElemento()");
+        var i = document.getElementsByTagName("input")[0];
+        var s = document.getElementById("selector");
+        if(s.value != 0 && i.value != ""){
+          var parr = document.createElement("p");
+          parr.innerHTML = i.value;
+          document.body.appendChild(parr);
+          parr.style.color = s.value;
+          parr.setAttribute("onclick", "borrarElemento()");
+        }else{
+       alert("Introduce el producto y la categoria.");
+        }
+      }
 
-      }
-      function borrarElemento(){
-        document.body.removeChild(document.querySelector("p:hover"));
-      }
+
       function borrarLista(){
         var mip = document.getElementsByTagName("p");
         var tamaño = mip.length;
         for (var i = 0; i < tamaño; i++) {
           document.body.removeChild(mip[0]);
         }
+      }
+      
+      function borrarElemento(){
+        document.body.removeChild(document.querySelector("p:hover"));
       }
 
 
