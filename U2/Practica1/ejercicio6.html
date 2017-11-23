@@ -36,7 +36,7 @@
 
 
     function Estudiante(nombre, apellidos, estudio, media){
-      Persona.call(this,nombre, apellidos);
+      Persona.call(this,nombre, apellidos); //para llamar al objeto persona desde el constructor Estudiante.
       this.estudio = estudio;
       this.media = media;
       this.recuperar = function(){
@@ -54,7 +54,7 @@
     var nota3 = prompt("Introduce la nota del alumno 3: ");
     nota3 = parseFloat(nota3);
 
-    var alum1 = new Estudiante("Nerea","Rodriguez Soler", "Ciclo", nota1);
+    var alum1 = new Estudiante("Nerea","Rodriguez Soler", "Ciclo", nota1); // creamos objetos del constructor
     var alum2 = new Estudiante("Jessica","Rodriguez Soler", "Bachiller", nota2);
     var alum3 = new Estudiante("Mathilde","Guillar Martinez", "Master", nota3);
     console.log("Nota media alumno 1: " + alum1.media);
@@ -67,7 +67,7 @@
     lista[1] = alum2;
     lista[2] = alum3;
      for(var i = 0; i < lista.length; i++){
-
+    
     console.log("El estudiante de estudios: " + lista[i].estudio + " Nombre: " + lista[i].nombre +  " Apellidos: " + lista[i].apellidos+ " Tienen una nota media de: " + lista[i].media);
 
      }

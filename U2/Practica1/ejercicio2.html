@@ -6,8 +6,8 @@
   </head>
   <body>
     <script type="text/javascript">
-      var coche1 = new Object();
-      coche1.marca = "Ford";
+      var coche1 = new Object(); // Creo un objeto
+      coche1.marca = "Ford"; //Atributos del objeto y son instancias del objeto
       coche1.ruedas = "4";
       coche1.plazas = "5";
       coche1.color = "rojo";
@@ -15,7 +15,7 @@
         color = "blanco";
       }
       var coche2 = new Object();
-      coche2.marca = "Mercedes";
+      coche2.marca = "Mercedes";//Otra instancia del objeto
       coche2.ruedas = "4";
       coche2.plazas = "7";
       coche2.color = "negro";
@@ -26,7 +26,7 @@
       console.log("Eliminar Plazas");
       delete coche1.plazas;
       console.log("Coche 1");
-      console.log(Object.keys(coche1));
+      console.log(Object.keys(coche1)); // Object.keys comprueba los atributos que tienen los objetos creados.
       console.log("Coche 2");
       console.log(Object.keys(coche2));
 
