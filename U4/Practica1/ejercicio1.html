@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ejercicio1</title>
+  </head>
+  <body>
+    <p onclick="document.body.children[0].innerHTML='Parrafo'">Esto es un p</p>
+    <div id="miDiv">Esto es un div</div>
+    <h1 onmouseup="mih1()">Esto es un h1</h1>
+    <h2 id="mih2">Esto es un h2</h2>
+    <h3 id="mih3">Esto es un h3</h3>
+    <script type="text/javascript">
+
+      function mih1(){
+        document.getElementsByTagName('h1')[0].innerHTML="TITULO H1";
+      }
+
+      miDiv.oncontextmenu = function(e){
+        e.preventDefault();
+        miDiv.innerHTML="Contenedor";
+      }
+
+      var textoh2=document.getElementsByTagName('h2')[0];
+          textoh2.addEventListener("mousedown", function(){
+          textoh2.innerHTML="TITULO H2";
+      });
+
+      var textoh3=document.getElementsByTagName('h3')[0];
+      textoh3.onmouseup = function(){
+      textoh3.innerHTML="TITULO H3";
+    }
+    
+    </script>
+  </body>
+</html>
