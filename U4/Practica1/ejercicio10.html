@@ -5,5 +5,36 @@
     <title></title>
   </head>
   <body>
+    <style media="screen">
+      *{
+        text-align: center;
+
+      }
+      img{
+        padding: 50px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="">
+      <img id="img" src="perro1.jpg" width="300" height="300">
+    </div>
+
+    <select id="selector" name="Elegir">
+      <option value="1" selected = "selected">Perro1</option>
+      <option value="2">Perro2</option>
+      <option value="3">Perro3</option>
+      <option value="4">Perro4</option>
+    </select>
+    <script type="text/javascript">
+    onload =  function(){
+    selector.addEventListener("change",elegir);
+      function elegir() {
+        var imagen = selector.value;
+        img.src = "perro" + selector.value + ".jpg"
+      }
+    }
+    </script>
   </body>
 </html>
