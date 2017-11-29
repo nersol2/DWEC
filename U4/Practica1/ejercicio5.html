@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      img{
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <img id="foto" src="https://www.mundoperro.net/wp-content/uploads/Beagle1.jpg" alt="perroizquierda"><br>
+    <a id="a" href="#nonavegar">Deshabilitar cambio de imagen</a>
+    <script type="text/javascript">
+
+    addEventListener("DOMContentLoaded", function(){
+
+    foto.addEventListener("mouseover",foto1);
+    function foto1(e){
+    e.target.src = "https://www.mundoperro.net/wp-content/uploads/Beagle1.jpg";
+    }
+
+    foto.addEventListener("mouseout",foto2);
+    function foto2(e){
+    e.target.src = "https://www.revistazero.es/wp-content/uploads/2017/10/perro-se-comunica-contigo.jpg";
+    }
+    a.addEventListener("click",function(){
+    foto.removeEventListener("mouseover", foto1);
+    foto.removeEventListener("mouseout", foto2);
+    });
+  });
+
+    </script>
+  </body>
+</html>

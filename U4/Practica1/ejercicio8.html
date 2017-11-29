@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title ></title>
+  </head>
+  <body>
+    <div>
+        <img id="img" width="150px" src="https://www.mundoperro.net/wp-content/uploads/Beagle1.jpg" alt="">
+    </div>
+    <script type="text/javascript">
+      addEventListener("DOMContentLoaded", function(){
+        onkeypress = function(e){
+          if (e.key=="+") {
+            if (img.width<1024) {
+                img.width = img.width + 25;
+            }
+          }if (e.key=="-"){
+            if (img.width>150) {
+                img.width = img.width - 25;
+            }
+          }
+        }
+      })
+    </script>
+
+  </body>
+</html>
