@@ -5,24 +5,34 @@
     <title></title>
   </head>
   <body>
-    <h3>Ejemplo JavaScript: pulse una tecla</h3>
-    <div id="control"> </div>
-
+    <p id="mip"></p>
     <script type="text/javascript">
     onload = function() {
-    onkeypress = mostrarInformacionCaracter;
-    onkeyup = mostrarInformacionCaracter;
-  }
+       onkeydown = ense;
+       onkeypress = enseñar;
+       onkeyup = enseñarEspecial;
+      }
 
-  function mostrarInformacionCaracter(e) {
-    var mensaje = '';
-    mensaje =
-              "Propiedad keyCode: " + e.keyCode + ", " +
-              "Propiedad charCode: " + e.charCode + ", " +
-              "Carácter pulsado: " + String.fromCharCode(e.charCode) + "<br>" +
-              "Propiedad key: " + e.key + "<br><br>";
-              control.innerHTML += mensaje;
-  }
+      var t;
+
+      function ense(e){
+      t = e.altKey || e.ctrlKey || e.shiftKey || e.metaKey;
+      }
+
+      function enseñar(e) {
+       var texto = '';
+       texto = "Tecla: " + String.fromCharCode(e.charCode) + " es: " +  e.charCode + "<br>";
+       mip.innerHTML += texto;
+      }
+
+      function enseñarEspecial(e) {
+       if (t){
+         var car = '';
+         car =  e.keyCode + " es: " + e.key;
+         console.log("Caracter especial " + car);
+       }
+      }
+
     </script>
   </body>
 </html>
