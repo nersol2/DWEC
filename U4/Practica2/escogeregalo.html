@@ -21,14 +21,69 @@
   </head>
   <body>
     <h1>Escoge un regalo</h1>
-      <p id="coche">Pista: Brrr Brrr</p>
-      <p id="crucero">Pista: Mediterranio</p>
-      <p id="movil">Pista: Recibe llamadas</p>
-      <div>?</div>
-      <div>?</div>
-      <div>?</div>
+      <p id="coche"></p>
+      <p id="crucero"></p>
+      <p id="movil"></p>
+      <div id="micoche">?</div>
+      <div id="micrucero">?</div>
+      <div id="mimovil">?</div>
   </body>
   <script type="text/javascript">
-
+  onload = function(){
+      micoche.oncontextmenu = function(e){
+        e.preventDefault();
+        coche.innerHTML="Pista: Brrr Brrr";
+      }
+      micrucero.oncontextmenu = function(e){
+        e.preventDefault();
+        crucero.innerHTML="Pista: Mediterranio";
+      }
+      mimovil.oncontextmenu = function(e){
+        e.preventDefault();
+        movil.innerHTML="Pista: Recibe llamadas";
+      }
+    micoche.addEventListener("click",elegir1);
+    function elegir1(e){
+      micoche.innerHTML = "";
+      var foto1 = document.createElement("img");
+      foto1.setAttribute("src", "coche.jpg");
+      foto1.style.width="200px";
+      micoche.appendChild(foto1);
+      // midiv1.style.background = "white";
+      alert("Tu premio es un coche");
+      micrucero.removeEventListener("click",elegir2);
+      mimovil.removeEventListener("click",elegir3);
+      micrucero.addEventListener("click",function(){alert("Tu premio es un coche");});
+      mimovil.addEventListener("click",function(){alert("Tu premio es un coche");});
+    }
+    micrucero.addEventListener("click",elegir2);
+    function elegir2(e){
+      micrucero.innerHTML = "";
+      var foto2 = document.createElement("img");
+      foto2.setAttribute("src", "crucero.jpg");
+      foto2.style.width="200px";
+      alert("Tu premio es un crucero");
+      micrucero.appendChild(foto2);
+        // micrucero.style.background = "white";
+      micoche.removeEventListener("click",elegir1);
+      mimovil.removeEventListener("click",elegir3);
+      micoche.addEventListener("click",function(){alert("Tu premio es un crucero");});
+      mimovil.addEventListener("click",function(){alert("Tu premio es un crucero");});
+    }
+    mimovil.addEventListener("click",elegir3);
+    function elegir3(e){
+      mimovil.innerHTML = "";
+      var foto3 = document.createElement("img");
+      foto3.setAttribute("src", "movil.jpg");
+      foto3.style.width="200px";
+      alert("Tu premio es un movil");
+      mimovil.appendChild(foto3);
+      // midiv3.style.background = "white";
+      micrucero.removeEventListener("click",elegir2);
+      micoche.removeEventListener("click",elegir1);
+      micrucero.addEventListener("click",function(){alert("Tu premio es un movil");});
+      micoche.addEventListener("click",function(){alert("Tu premio es un movil");});
+    }
+  }
   </script>
 </html>
