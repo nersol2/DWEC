@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>U4 Práctica 2: Formulario</title>
     <link rel="stylesheet" href="css/estiloEjFormulario.css">
+    <script text="text/javascript" src="formulario.js"></script>
   </head>
   <body>
     <form id="formulario" action="#" method="post" enctype="application/x-www-urlencoded">
@@ -55,10 +56,10 @@
     </div>
     <div id="radio">
       <label for="efectivo">Efectivo
-      <input type="radio" name="efectivo" id="efectivo" value="efectivo"></input>
+      <input type="radio" name="pago" id="efectivo" value="efectivo"></input>
       </label>
       <label for="tarjeta">Tarjeta
-      <input type="radio" name="tarjeta" id="tarjeta" value="tarjeta"></input>
+      <input type="radio" name="pago" id="tarjeta" value="tarjeta"></input>
       </label>
     </div>
 
@@ -75,8 +76,8 @@
     <div id="nota">Nota: los campos marcados con "*" son obligatorios</div>
 
     <!-- Incluyo un div vacío para poner los errores del formulario -->
-    <div class="errores">
-    </div>
+    <div class="errores"></div>
     </form>
+
   </body>
 </html>
