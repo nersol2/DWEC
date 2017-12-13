@@ -78,34 +78,108 @@
     <div class="errores"></div>
     </form>
     <script type="text/javascript">
-    onload = function(e){
-      e.preventDefault();
-      var form = document.getElementById("formulario")[0];
-      form.onsubmit = function(){
-        var nombre = document.getElementById("nombre")[0].value;
-        var apellidos = document.getElementById("apellidos")[0].value;
-        var email = document.getElementById("email")[0].value;
-        var dni = document.getElementById("dni")[0].value;
-        var fecha = document.getElementById("fecha")[0].value;
-        var seccion  = document.getElementById("seccion")[0].selectIndex;
-        var pago = document.getElementsByName("pago");
-        var radio = true;
-        if(document.getElementById('efectivo').value !=="" && document.getElementById('tarjeta').value !== "" ){
-              radio = false;
-            }
-          
+		onload=function(){
 
-        if (nombre != "" && apellidos != "" && email != "" && dni != "" && fecha != "" && seccion != 0 && radio==true) {
-          document.cookie =  "nombre=" + nombre +";max-age=3600*24*365; path=/";
-          document.cookie =  "apellidos=" + apellidos +";max-age=3600*24*365; path=/";
-          localStorage.setItem("email", email);
-          sessionStorage.setItem("dni",dni);
-          form.action = "alta.html";
-          form.submit();
-        }
-      }
+var form = document.forms[0];
+
+form.onsubmit = function(e){
+var error = document.getElementsByClassName('errores')[0];
+var errorList ="";
+var ret = true;
+e.preventDefault();
+
+ var nombre = document.getElementById('nombre').value;
+ if (nombre==null||nombre.length==0 || !(/^\S+[\s?\S+]*$/.test(nombre))) {
+   errorList += "Error, introduce bien el nombre <br>";
+   ret = false;
+ }else {
+   document.cookie = "Nombre =" + nombre + ";max-age="+3600*24*365 + ";path =/;";
+ }
+ var apellidos = document.getElementById('apellidos').value;
+ if (apellidos==null||apellidos==0||!(/^\S+[\s?\S+]*$/.test(apellidos))) {
+    errorList += "Error, introduce bien los apellidos <br>";
+    ret = false;
+ }else {
+   document.cookie = "Apellidos =" + apellidos +";max-age="+3600*24*365 + ";path =/;";
+ }
+
+ var correo = document.getElementById('email').value;
+ if (!/^\w+@\w+\.\w+$/.test(correo)) {
+   errorList +="Error, introduce bien el correo";
+   ret=false;
+ }else {
+   localStorage.setItem("correo",correo);
+ }
+
+ var repeCorreo = document.getElementById('emailRepe').value;
+ if (repeCorreo != correo) {
+   errorList += "Error, los correos no coinciden";
+   ret= false;
+ }
+ var dni = document.getElementById('dni').value;
+ var letras = ['T','R','W','A','G','M','Y','F','P','D','X',
+    'B','N','J','Z','S','Q','V','H','L','C','K','E','T'];
+  if(isNaN(dni)){
+    if (!/^\d{8}[A-Z]$/.test(dni)) {
+      errorList += "Error, el dni no coincide";
+      ret = false;
+  }
+  if (dni.charAt(8) != letras[(dni.substring(0, 8))%23]) {
+    ret = false;
+  }
+  sessionStorage.dni = dni;
+}
+
+    var fecha = (document.getElementById("fecha").value).split("-");
+    var year = fecha[0];
+    var month = fecha[1];
+    var day = fecha[2];
+    var fechaCreada = new Date(year,(month - 1),day);
+    var hoy = new Date();
+    var age = hoy.getFullYear() - year - 1;
+    if (hoy.getMonth()+1-month>0) {
+      age++;
+    }
+    if (hoy.getUTCDate()-year>=0) {
+      age++;
+    }
+    if( isNaN(fechaCreada) || day > 31 ||day < 1 || month < 1 || month >12 || year < 0 || year >= hoy.getFullYear()){
+     errorList += "Error, introduce bien la fecha";
+      ret = false;
+    }else if (age < 18) {
+      errorList += "Debe ser mayor de edad </br>"
+      ret = false;
     }
 
+    var selector = document.getElementById('selector').value;
+    if (selector==0 || selector == null) {
+      errorList += "Escoja un favorito";
+      ret = false;
+    }
+
+    if (!document.getElementById("efectivo").checked && !document.getElementById("tarjeta").checked) {
+      ret = false;
+      errorList += "Error, selecciona un metodo de pago <br>";
+    }
+    if (!document.getElementById("cond").checked) {
+      ret = false;
+      errorList += "Error, acepta las condiciones <br>";
+    }
+
+ if (ret){
+
+      form.action = "alta.html";
+      form.submit();
+      document.getElementById("enviar").value = "Enviando...";
+      document.getElementById("enviar").disabled = true;
+    }else{
+      error.style.color= "red";
+
+    }
+    error.innerHTML = errorList;
+
+}
+}
     </script>
   </body>
 </html>
