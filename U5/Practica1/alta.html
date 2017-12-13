@@ -22,8 +22,8 @@
       return null;
       }
 
-      var email = localStorage.getItem("email");
-      console.log("email = " + email);
+      var correo = localStorage.getItem("correo");
+      console.log("correo = " + correo);
       var dni = sessionStorage.getItem("dni");
       console.log("dni = " + dni);
       var nombre = getCookie ("Nombre");
@@ -34,7 +34,8 @@
       var parrafo =  document.getElementsByTagName("p")[0];
       parrafo.innerHTML = "Hola me llamo " + nombre + " " +apellidos+"<br>"+
       "con dni: "+dni+ "<br>"+
-      "con email: "+email+ "<br>";
+      "con email: "+correo+ "<br>";
       }
   </script>
 </html>
+
