@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>almacenamiento</title>
+    <link rel="stylesheet" href="css/estiloEjFormulario.css">
+  </head>
+  <body>
+    <form id="formulario" action="#" method="post" enctype="application/x-www-urlencoded">
+    <!--Zona info personal-->
+    <h1>Formulario alta</h1>
+    <fieldset>
+    <legend>Información personal</legend>
+    <div>
+    <label for="nombre">Nombre*:</label>
+    <input type="text" name="nombre" id="nombre" autofocus="autofocus" placeholder="Introduce el nombre..."></input>
+    </div>
+
+    <div>
+    <label for="apellidos">Apellidos*:</label>
+    <input type="text" name="apellidos" id="apellidos"></input>
+    </div>
+
+    <div>
+    <label for="email">Email*:</label>
+    <input type="email" name="email" id="email"></input>
+    </div>
+
+    <div>
+    <label for="email">Repetir email*:</label>
+    <input type="email" name="email" id="emailRepe"></input>
+    </div>
+
+    <div>
+    <label for="dni">DNI:</label>
+    <input type="text" name="dni" id="dni"></input>
+    </div>
+
+    <div id="inputFecha">
+    <label for="fecha">Fecha nacimiento*:</label>
+    <input type="date" name="fecha" id="fecha"></input>
+    </div>
+
+    <div id="seccion">
+    <label for="selector">Sección favorita*:</label>
+    <select name="seccion" id="selector">
+    <option value="0">Escoge una sección </option>
+    <option value="discos">Discos</option>
+    <option value="libros">Libros</option>
+    <option value="tecnologia">Tecnología</option>
+    </select>
+    </div>
+    <div>
+      <p>Modo preferente de pago*:</p>
+    </div>
+    <div id="radio">
+      <label for="efectivo">Efectivo
+      <input type="radio" name="pago" id="efectivo" value="efectivo"></input>
+      </label>
+      <label for="tarjeta">Tarjeta
+      <input type="radio" name="pago" id="tarjeta" value="tarjeta"></input>
+      </label>
+    </div>
+
+    </fieldset>
+
+    <!--Zona checks y aceptar-->
+    <label class="check">
+    <input type="checkbox" name="cond" id="cond"></input>
+    <p>Acepto las condiciones de alta</p>
+    </label>
+
+    <input type="submit" value="Enviar" id="enviar"></input>
+
+    <div id="nota">Nota: los campos marcados con "*" son obligatorios</div>
+
+    <!-- Incluyo un div vacío para poner los errores del formulario -->
+    <div class="errores"></div>
+    </form>
+    <script type="text/javascript">
+		onload=function(){
+
+var form = document.forms[0];
+
+form.onsubmit = function(e){
+var error = document.getElementsByClassName('errores')[0];
+var errorList ="";
+var ret = true;
+e.preventDefault();
+
+ var nombre = document.getElementById('nombre').value;
+ if (nombre==null||nombre.length==0 || !(/^\S+[\s?\S+]*$/.test(nombre))) {
+   errorList += "Error, introduce bien el nombre <br>";
+   ret = false;
+ }else {
+   document.cookie = "Nombre =" + nombre + ";max-age="+3600*24*365 + ";path =/;";
+ }
+ var apellidos = document.getElementById('apellidos').value;
+ if (apellidos==null||apellidos==0||!(/^\S+[\s?\S+]*$/.test(apellidos))) {
+    errorList += "Error, introduce bien los apellidos <br>";
+    ret = false;
+ }else {
+   document.cookie = "Apellidos =" + apellidos +";max-age="+3600*24*365 + ";path =/;";
+ }
+
+ var correo = document.getElementById('email').value;
+ if (!/^\w+@\w+\.\w+$/.test(correo)) {
+   errorList +="Error, introduce bien el correo";
+   ret=false;
+ }else {
+   localStorage.setItem("correo",correo);
+ }
+
+ var repeCorreo = document.getElementById('emailRepe').value;
+ if (repeCorreo != correo) {
+   errorList += "Error, los correos no coinciden";
+   ret= false;
+ }
+ var dni = document.getElementById('dni').value;
+ var letras = ['T','R','W','A','G','M','Y','F','P','D','X',
+    'B','N','J','Z','S','Q','V','H','L','C','K','E','T'];
+  if(isNaN(dni)){
+    if (!/^\d{8}[A-Z]$/.test(dni)) {
+      errorList += "Error, el dni no coincide";
+      ret = false;
+  }
+  if (dni.charAt(8) != letras[(dni.substring(0, 8))%23]) {
+    ret = false;
+  }
+  sessionStorage.dni = dni;
+}
+
+    var fecha = (document.getElementById("fecha").value).split("-");
+    var year = fecha[0];
+    var month = fecha[1];
+    var day = fecha[2];
+    var fechaCreada = new Date(year,(month - 1),day);
+    var hoy = new Date();
+    var age = hoy.getFullYear() - year - 1;
+    if (hoy.getMonth()+1-month>0) {
+      age++;
+    }
+    if (hoy.getUTCDate()-year>=0) {
+      age++;
+    }
+    if( isNaN(fechaCreada) || day > 31 ||day < 1 || month < 1 || month >12 || year < 0 || year >= hoy.getFullYear()){
+     errorList += "Error, introduce bien la fecha";
+      ret = false;
+    }else if (age < 18) {
+      errorList += "Debe ser mayor de edad </br>"
+      ret = false;
+    }
+
+    var selector = document.getElementById('selector').value;
+    if (selector==0 || selector == null) {
+      errorList += "Escoja un favorito";
+      ret = false;
+    }
+
+    if (!document.getElementById("efectivo").checked && !document.getElementById("tarjeta").checked) {
+      ret = false;
+      errorList += "Error, selecciona un metodo de pago <br>";
+    }
+    if (!document.getElementById("cond").checked) {
+      ret = false;
+      errorList += "Error, acepta las condiciones <br>";
+    }
+
+ if (ret){
+
+      form.action = "alta.html";
+      form.submit();
+      document.getElementById("enviar").value = "Enviando...";
+      document.getElementById("enviar").disabled = true;
+    }else{
+      error.style.color= "red";
+
+    }
+    error.innerHTML = errorList;
+
+}
+}
+    </script>
+  </body>
+</html>
