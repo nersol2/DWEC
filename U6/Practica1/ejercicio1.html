@@ -4,10 +4,16 @@
     <meta charset="utf-8">
     <title>Ejercicio 1</title>
     <script type="text/javascript">
-    if (ActiveXObject("Microsoft.XMLHTTP")) {
-        var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    onload  = function(){
+      if (window.XMLHttpRequest) { //comprueba si existe
+          var xhr = new XMLHttpRequest();
+      }else if (ActiveXObject("Microsoft.XMLHTTP")) { //comprueba si existe en equipos viejos de Microsoft
+          var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      var rand = Math.floor((Math.random() * 4) + 1);
+      
     }
-    
+
     </script>
   </head>
   <body>
