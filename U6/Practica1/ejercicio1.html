@@ -10,15 +10,21 @@
       }else if (ActiveXObject("Microsoft.XMLHTTP")) { //comprueba si existe en equipos viejos de Microsoft
           var xhr = new ActiveXObject("Microsoft.XMLHTTP");
       }
-      var rand = Math.floor((Math.random() * 4) + 1);
-      
+
+      btn.onclick = function(){
+        var rand = Math.floor((Math.random() * 4) + 1);
+        var url ="noticias" + rand + "txt";
+        xhr.open("GET",url,true);
+        xhr.onreadystatechange = muestraResultado;
+        xhr.send();
     }
+  }
 
     </script>
   </head>
   <body>
     <h1>Noticias</h1>
-    <button>Noticias</button>
+    <button id="btn">Noticias</button>
     <p id="resultado"></p>
   </body>
 </html>
