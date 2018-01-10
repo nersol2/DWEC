@@ -13,7 +13,7 @@
 
       btn.onclick = function(){
         var rand = Math.floor((Math.random() * 4) + 1);
-        var url ="noticia" + rand + "txt";
+        var url ="noticia" + rand + ".txt";
         xhr.open("GET",url,true);
         xhr.onreadystatechange = muestraResultado;
         xhr.send();
