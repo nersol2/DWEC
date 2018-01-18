@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio4</title>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/8F45EB77-3994-404A-AF67-C413EDB14ED8/main.js" charset="UTF-8"></script><script type="text/javascript">
+      onload = function(){
+        var xhr =  new XMLHttpRequest();
+        document.forms[0].onsubmit = function(e){
+            e.preventDefault();
+            var url = "U6Ej4LoginJSON.php";
+            xhr.open("post", url, true);
+            xhr.onreadystatechange = muestraResultado;
+            function muestraResultado(){
+              if(xhr.readyState == 4 && xhr.status == 200){
+                var respon = xhr.responseText;
+                var obj = JSON.parse(xhr.responseText);
+                var cont = obj.res;
+                if (cont){
+                  document.forms[0].action = "homelogado.html";
+                  var tokens = obj.token;
+                  window.localStorage.token =  tokens;
+                  document.forms[0].submit();
+                }else{
+                  alert("Error, has introducido mal los datos");
+                }
+
+              }
+            }
+            function obtenDatosLogin(){
+              var user = document.getElementById("usuario").value;
+              var contra = document.getElementById("password").value;
+              var login = "usuario=" + encodeURIComponent(user) + "&password=" + encodeURIComponent(contra);
+              return login;
+            }
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            var dlogin = obtenDatosLogin();
+            xhr.send(dlogin);
+
+
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form method="post">
+      Usuario<input type="text" id="usuario">
+      Contraseña <input type="text" id="password">
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

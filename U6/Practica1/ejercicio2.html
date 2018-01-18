@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Ejercicio 1</title>
+    <title>Ejercicio 2</title>
     <script src="./js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
     onload  = function(){
@@ -25,6 +25,18 @@
       }else if (xhr.readyState == 4 && xhr.status != 200) {
         alert(xhr.statusText);
       }
+      muestraCabeceras();
+      muestraCodigoEstado();
+      muestraEstadosPeticion();
+    }
+    function muestraEstadosPeticion(){
+      estadospeticion.innerHTML = xhr.readyState;
+    }
+    function muestraCabeceras(){
+      cabeceras.innerHTML = xhr.getAllResponseHeaders();
+    }
+    function muestraCodigoEstado(){
+      codigoestado.innerHTML = xhr.status;
     }
   }
 
@@ -33,5 +45,8 @@
   <body>
     <h1>Noticias</h1>
     <p id="resultado"></p>
+    <div id="estadospeticion"></div>
+    <div id="cabeceras"></div>
+    <div id="codigoestado"></div>
   </body>
 </html>
