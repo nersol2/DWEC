@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio flickr</title>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("button").click(function(){
+				var val = $("#selector").val();
+				var url = "https://www.flickr.com/services/feeds/photos_public.gne?tags=";
+				url += val + "&format=json&jsoncallback=?";
+				$.getJSON(url, function(data,st,xhr){
+					if(st =="success"){
+						var arrFotos = data.items;
+						var a = 0;
+						$("#foto").empty();
+						$.each(arrFotos, function(i, item){
+							if(a<10){
+								var imag = item.media.m
+								var fot = document.createElement("img");
+								fot.setAttribute("src",imag);
+                fot.style.height = "120px";
+								fot.style.width = "120px";
+								foto.appendChild(fot);
+								a++;
+							}
+						});
+					}else{
+						alert(xhr.status);
+					}
+				});
+		});
+	});
+</script>
+</head>
+<body>
+  <h1>Mi flickr</h1>
+  <div id="foto">
+  </div>
+	<button>Dibuja la imagen</button>
+  <select id="selector">
+    <option value="dog">Perros</option>
+    <option value="cars">Coches</option>
+    <option value="flowers">Flores</option>
+    <option value="cakes">Tartas</option>
+    <option value="landscape">Paisajes</option>
+		<option value="food">Comidas</option>
+		<option value="cat">Gatos</option>
+  </select>
+</body>
+</html>
